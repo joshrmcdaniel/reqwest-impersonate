@@ -432,7 +432,7 @@ impl Default for TlsBackend {
 
         #[cfg(all(feature = "__rustls", not(feature = "default-tls")))]
         {
-            TlsBackend::Rustls
+            return TlsBackend::Rustls;
         }
 
         #[cfg(all(feature = "__boring", not(feature = "default-tls")))]
