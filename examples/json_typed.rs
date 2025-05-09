@@ -27,7 +27,7 @@ async fn main() -> Result<(), reqwest::Error> {
         body: "https://docs.rs/reqwest".into(),
         user_id: 1,
     };
-    let new_post: Post = reqwest::Client::new()
+    let new_post: Post = reqwest_impersonate::Client::new()
         .post("https://jsonplaceholder.typicode.com/posts")
         .json(&new_post)
         .send()

@@ -5,7 +5,7 @@
 // `tokio = { version = "1", features = ["full"] }`
 #[cfg(not(target_arch = "wasm32"))]
 #[tokio::main]
-async fn main() -> Result<(), reqwest::Error> {
+async fn main() -> Result<(), reqwest_impersonate::Error> {
     // Some simple CLI args requirements...
     let url = match std::env::args().nth(1) {
         Some(url) => url,
@@ -21,7 +21,7 @@ async fn main() -> Result<(), reqwest::Error> {
     //
     // In most cases, you should create/build a reqwest::Client and reuse
     // it for all requests.
-    let res = reqwest::get(url).await?;
+    let res = reqwest_impersonate::get(url).await?;
 
     eprintln!("Response: {:?} {}", res.version(), res.status());
     eprintln!("Headers: {:#?}\n", res.headers());
